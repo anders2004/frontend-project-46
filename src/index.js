@@ -26,18 +26,16 @@ const gendiff = (filepath1, filepath2) => {
       return [...acc, ['-', `${key}:`, object1[key]], ['+', `${key}:`, object2[key]]];
     }
     /* unchanged */
-    return [...acc, ['', `${key}:`, object1[key]]];
+    return [...acc, [' ', `${key}:`, object1[key]]];
   }, []);
 
   const diffString = diff.map((field) => field.join(' '));
 
-  const result = `{\n${diffString.join('\n')}\n}`;
+  const result = `{\n  ${diffString.join('\n  ')}\n}`;
 
   return result;
 };
 
 export default gendiff;
 
-/*
 console.log(gendiff('../../extra/file1.json', '../../extra/file2.json'));
-*/
