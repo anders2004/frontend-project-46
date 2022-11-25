@@ -35,4 +35,4 @@ const gendiff = (filepath1, filepath2) => {
 
 export default gendiff;
 
-/*console.log(gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json'));*/
+/* console.log(gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json')); */
