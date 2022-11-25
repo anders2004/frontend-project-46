@@ -31,11 +31,9 @@ const gendiff = (filepath1, filepath2) => {
 
   const diffString = diff.map((field) => field.join(' '));
 
-  const result = `{\n  ${diffString.join('\n  ')}\n}`;
-
-  return result;
+  return `{\n  ${diffString.join('\n  ')}\n}`;
 };
 
 export default gendiff;
 
-console.log(gendiff('../../extra/file1.json', '../../extra/file2.json'));
+/* console.log(gendiff('../../extra/file1.json', '../../extra/file2.json')); */

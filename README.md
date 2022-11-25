@@ -1,3 +1,20 @@
-[![Actions Status](https://github.com/anders2004/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/anders2004/frontend-project-46/actions)
-
 # Gendiff
+[![Actions Status](https://github.com/anders2004/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/anders2004/frontend-project-46/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+
+This is the diff tool, which shows difference between two files. The output can be shown with different formats.
+___
+
+## Installation
+- Clone repo
+- Go to the directory with the cloned repo
+- Run setup
+```console
+make setup
+```
+___
+
+## Examples
+#### Comparing flat .json files
+[![asciicast](https://asciinema.org/a/KuJKhUnGfpWzdJPeSmBS7CEuw.svg)](https://asciinema.org/a/KuJKhUnGfpWzdJPeSmBS7CEuw)
