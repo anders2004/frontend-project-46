@@ -5,7 +5,6 @@
 [![Builder CI](https://github.com/anders2004/frontend-project-46/actions/workflows/projectCI.yml/badge.svg)](https://github.com/anders2004/frontend-project-46/actions/workflows/projectCI.yml)
 
 This is the diff tool, which shows difference between two files. The output can be shown with different formats.
-___
 
 ## Requirements:
 - Node.js v.16 +
@@ -17,7 +16,6 @@ ___
 ```console
 make setup
 ```
-___
 
 ## Examples
 #### Comparing flat JSON files
