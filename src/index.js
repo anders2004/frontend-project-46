@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
+import formatData from './formaters.js';
 
 const readFile = (filepath) => fs.readFileSync(path.resolve(process.cwd(), filepath), 'utf8');
 
@@ -12,28 +13,26 @@ const gendiff = (filepath1, filepath2) => {
   const object2 = getData(filepath2);
   const commonKeys = _.union(Object.keys(object1), Object.keys(object2)).sort();
 
-  const diff = commonKeys.reduce((acc, key) => {
+  const diff = commonKeys.map((key) => {
     if (!Object.hasOwn(object1, key)) {
-      /* added */
-      return [...acc, ['+', `${key}:`, object2[key]]];
+      return { key, value: object2[key], type: 'added' };
     }
     if (!Object.hasOwn(object2, key)) {
-      /* removed */
-      return [...acc, ['-', `${key}:`, object1[key]]];
+      return { key, value: object1[key], type: 'removed' };
     }
     if (object1[key] !== object2[key]) {
-      /* changed */
-      return [...acc, ['-', `${key}:`, object1[key]], ['+', `${key}:`, object2[key]]];
+      return {
+        key,
+        valueOld: object1[key],
+        valueNew: object2[key],
+        type: 'changed',
+      };
     }
-    /* unchanged */
-    return [...acc, [' ', `${key}:`, object1[key]]];
-  }, []);
-
-  const diffString = diff.map((field) => field.join(' '));
-
-  return `{\n  ${diffString.join('\n  ')}\n}`;
+    return { key, value: object1[key], type: 'unchanged' };
+  });
+  return formatData(diff);
 };
 
 export default gendiff;
 
-/* console.log(gendiff('../../extra/file1.json', '../../extra/file2.json')); */
+/*console.log(gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json'));*/
