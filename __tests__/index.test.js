@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const expected = readFile('comparison-flat-JSON.txt');
+const expected = readFile('comparison-result.txt');
 
 test('compare flat JSON files', () => {
   const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
